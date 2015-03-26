@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>2048 Game</title>
+		<link type="text/css" rel="stylesheet" href="css/index.css">
+		<link type="text/css" rel="stylesheet" href="css/game_box.css">
+		<script type="text/javascript" src="js/index.js"></script>
+	</head>
+	<body onload="gameBox();">
+		<div id="container">	
+			<header>
+				<div id="logo">2048</div>
+				<div id="score">1000</div>
+				<div id="best">2000</div>
+				<div id="task"> <b>Classic Mode:</b> Join the numbers and get 2048 tile! </div>
+			</header>
+			
+			<div id="gamebody"></div>
+		
+			<div id="button">	
+				<button onclick="swapUp()">swap up!</button>
+				<button onclick="swapRight()">swap right!</button>
+				<button onclick="swapButtom()">swap buttom!</button>
+				<button onclick="swapLeft()">swap left!</button>
+			</div>	
+		</div>	
+	</body>
+</html>

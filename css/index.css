@@ -1,0 +1,67 @@
+#container{
+	width: 100%;
+	max-width: 400px;
+	background-color: #009999;
+	text-align: center;
+	border: 1px solid #ffffff;
+	color: white;
+	font-size: 2em;
+}
+
+header{
+	height: 100px;
+}
+
+#task{
+	font-size: 15px;
+	color: black;
+}
+
+#button{
+	margin: 20px;
+	line-height: 50px;
+}
+
+#logo{
+	margin: 3%;
+	width: 20%;
+	float: left;
+	background-color: #cc9900;
+	border-radius: 5px;
+	line-height: 40px;
+}
+
+#score{
+	margin: 3%;
+	width: 30%;
+	float: left;
+	background-color: #cc9900;
+	border-radius: 5px;
+	line-height: 40px;
+}
+
+#best{
+	margin: 3%;
+	width: 30%;
+	float: left;
+	background-color: #cc9900;
+	border-radius: 5px;
+	line-height: 40px;
+}
+
+#gamebody{
+	margin: 2%;
+	height: 400px;
+	background-color: #FF6699;
+	border: 1px solid #ffffff;
+}
+
+.gameBox{
+	color: #663300;
+	margin: 3px 2px;
+	float: left;
+	width: 91px;
+	line-height: 92px;
+	background-color: #663300;
+	border-radius: 10px;
+}

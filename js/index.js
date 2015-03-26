@@ -1,0 +1,245 @@
+//all classes stored in game box box_classes
+var classes = ['game_box2','game_box4','game_box8','game_box16','game_box32','game_box64','game_box128','game_box256','game_box512','game_box1024','game_box2048'];
+//every box have his own classes
+var no_of_gamebox1=0;
+var no_of_gamebox2=0;
+var no_of_gamebox3=0;
+var no_of_gamebox4=0;
+
+function gameBox(){
+	var s = "";
+	for( x=0; x<4 ; x++ ){
+		for( y=0; y<4 ; y++ ){
+			s += "<div id=box_"+x+"_"+y+" class=gameBox> 0 </div>";
+		}	
+	}
+	
+	gamebody.innerHTML = s;
+	add_gameBox();
+	add_gameBox();
+	add_gameBox();
+	//document.write(gamebody);
+}
+
+function add_gameBox(){
+	i=parseInt(4*Math.random());
+	j=parseInt(4*Math.random());
+	//document.write(j);
+	//document.write(i);
+	
+	if(document.getElementById("box_"+i+"_"+j).classList.length == 1){
+		document.getElementById("box_"+i+"_"+j).classList.add(classes[0]);
+		add_value(i,j);
+		//document.write('hello');
+	}else{
+		add_gameBox();
+	}
+	//document.write(classes);
+}
+
+// for add a value in game box //
+
+function add_value(i,j){
+	/////////////////////////////////////////////////////////////
+	
+	if(document.getElementById("box_"+i+"_"+j+"").classList.contains('game_box2')){
+		document.getElementById("box_"+i+"_"+j+"").innerHTML = "2";
+	}
+	
+	/////////////////////////////////////////////////////////////
+	
+	if(document.getElementById("box_"+i+"_"+j+"").classList.contains('game_box4')){
+		document.getElementById("box_"+i+"_"+j+"").innerHTML = "4";
+	}
+	
+	if(document.getElementById("box_"+i+"_"+j+"").classList.contains('game_box8')){
+		document.getElementById("box_"+i+"_"+j+"").innerHTML = "8";
+	}
+	
+	if(document.getElementById("box_"+i+"_"+j+"").classList.contains('game_box16')){
+		document.getElementById("box_"+i+"_"+j+"").innerHTML = "16";
+	}
+	
+	if(document.getElementById("box_"+i+"_"+j+"").classList.contains('game_box32')){
+		document.getElementById("box_"+i+"_"+j+"").innerHTML = "32";
+	}
+	
+	if(document.getElementById("box_"+i+"_"+j+"").classList.contains('game_box64')){
+		document.getElementById("box_"+i+"_"+j+"").innerHTML = "64";
+	}
+	
+	if(document.getElementById("box_"+i+"_"+j+"").classList.contains('game_box128')){
+		document.getElementById("box_"+i+"_"+j+"").innerHTML = "128";
+	}
+	
+	if(document.getElementById("box_"+i+"_"+j+"").classList.contains('game_box256')){
+		document.getElementById("box_"+i+"_"+j+"").innerHTML = "256";
+	}
+	
+	if(document.getElementById("box_"+i+"_"+j+"").classList.contains('game_box512')){
+		document.getElementById("box_"+i+"_"+j+"").innerHTML = "512";
+	}
+	
+	if(document.getElementById("box_"+i+"_"+j+"").classList.contains('game_box1024')){
+		document.getElementById("box_"+i+"_"+j+"").innerHTML = "1028";
+	}
+	
+	if(document.getElementById("box_"+i+"_"+j+"").classList.contains('game_box2048')){
+		document.getElementById("box_"+i+"_"+j+"").innerHTML = "2048";
+	}
+	
+}
+//end of add value function
+//////////////////////////////////////////////////////////////////////////////////////////////
+/*
+function add_classes(i,j,index){
+	//document.getElementById("box_"+i+"_"+j+"").classList.toggle(class_remove);
+	add_box_classes.push(box_classes[index]);
+	document.getElementById("box_"+i+"_"+j+"").classList.toggle(box_classes[index]);
+	add_value(i,j);
+}*/
+/////////////////////////////////////////////////////////////////////////////////////////////
+//remove class or game_box
+/*
+function remove_classes(i,j){
+	//document.getElementById("box_"+i+"_"+j+"").classList.toggle(class_remove);
+	var remove=add_box_classes.pop();
+	document.getElementById("box_"+i+"_"+j+"").classList.toggle(remove);
+	var index=
+	add_classes(i,j,index);
+}	
+*/
+//action of game boxes
+function add_class(x,y,class_i){
+	box_remove=x-1;
+	document.getElementById("box_"+box_remove+"_"+y+"").classList.remove(classes[class_i]);
+	document.getElementById("box_"+x+"_"+y+"").classList.remove(classes[class_i]);
+	document.getElementById("box_"+x+"_"+y+"").classList.add(classes[class_i+1]);
+}
+
+function action(x,y,game_box,class_i){
+	//document.write("no_of_gamebox1");
+	//for(i=0;i>){				
+	if(x === 0){
+
+		if(document.getElementById("box_"+x+"_"+y+"").className === game_box){
+			no_gamebox++;
+		}	
+	}
+	
+	if(x === 1){
+
+		if(document.getElementById("box_"+x+"_"+y+"").className === game_box){
+			no_gamebox++;
+			if(no_gamebox==2){
+				add_class(x,y,class_i);
+				add_value(x,y);
+				swap='Yes';
+				no_gamebox=0;
+			}
+		}else{
+			no_gamebox=0;
+		}	
+	}
+	
+	if(x === 2){
+
+		if(document.getElementById("box_"+x+"_"+y+"").className === game_box){
+			no_gamebox++;
+			if(no_gamebox==2){
+				add_class(x,y,class_i);
+				add_value(x,y);
+				swap='Yes';
+				no_gamebox=0;
+			}
+		}else{
+			no_gamebox=0;
+		}	
+	}
+	
+	if(x === 3){
+
+		if(document.getElementById("box_"+x+"_"+y+"").className === game_box){
+			no_gamebox++;
+			if(no_gamebox==2){
+				add_class(x,y,class_i);
+				swap='Yes';
+				add_value(x,y);
+			}
+		}	
+	}
+}
+//for buttom
+function arrange_boxes(y){
+	for(x=1;x<=3;x++){
+		if(document.getElementById("box_"+x+"_"+y+"").className === "gameBox"){
+			x_val=x-1;
+			if(document.getElementById("box_"+x_val+"_"+y+"").className != "gameBox"){
+				c=document.getElementById("box_"+x_val+"_"+y+"").className;
+				c=c.substring(8);
+				document.getElementById("box_"+x_val+"_"+y+"").classList.remove(c);
+				document.getElementById("box_"+x+"_"+y+"").classList.add(c);
+				add_value(x,y);
+			}
+		}	
+	}
+}
+//end of action function
+
+//for swap up button in game
+function swapButtom(){
+// x is positive 0,1,2,3
+	var swap='';
+	for(y=0;y<=3;y++){
+	// y is negative 3,2,1,0
+		for(class_i=classes.length;class_i>=0;class_i--){
+			no_gamebox=0;
+			for(x=0;x<=3;x++){
+			
+				str1="gameBox ";
+				str2=classes[class_i];
+				game_box=str1.concat(str2);
+				action(x,y,game_box,class_i);
+				//document.write(y+','+x+','+no_gamebox+','+game_box+','+class_i+'<br>');
+			}	
+			arrange_boxes(y);
+		}	
+	}
+	if(swap=='Yes'){
+		add_gameBox();
+	}	
+}
+//end of swap up
+
+//for swap right button in game
+function swapRight(){
+	add_gameBox();
+}
+//end of swap up button in game
+
+//for swap buttom in game 
+function swapUp(){
+	
+	for(y=0;y<=3;y++){
+	// y is negative 3,2,1,0
+		for(class_i=classes.length;class_i>=0;class_i--){
+			no_gamebox=0;
+			for(x=3;x<=0;x--){
+			
+				str1="gameBox ";
+				str2=classes[class_i];
+				game_box=str1.concat(str2);
+				action(x,y,game_box,class_i);
+				//document.write(y+','+x+','+no_gamebox+','+game_box+','+class_i+'<br>');
+			}	
+			arrange_boxes(y);
+		}	
+	}
+	add_gameBox();
+}
+//end of swap button
+//for swap left in game  
+function swapLeft(){
+	add_gameBox();
+}
+//end of swap left
