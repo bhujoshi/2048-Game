@@ -6,6 +6,8 @@ var no_of_gamebox2=0;
 var no_of_gamebox3=0;
 var no_of_gamebox4=0;
 var swap='';
+var speed=200;
+var action_speed;
 
 function gameBox(){
 	var s = "";
@@ -114,16 +116,22 @@ function remove_classes(i,j){
 function add_class(x,y,class_i,box_remove){
 	//document.write(x+','+box_remove);
 	document.getElementById("box_"+box_remove+"_"+y+"").classList.remove(classes[class_i]);
-	document.getElementById("box_"+x+"_"+y+"").classList.remove(classes[class_i]);
-	document.getElementById("box_"+x+"_"+y+"").classList.add(classes[class_i+1]);
+	setTimeout(function(){	
+		document.getElementById("box_"+x+"_"+y+"").classList.remove(classes[class_i]);
+		document.getElementById("box_"+x+"_"+y+"").classList.add(classes[class_i+1]);
+		add_value(x,y);
+	},action_speed);	
 	swap='Yes';
 }
 
 function add_classRight_or_Left(x,y,class_i,box_remove){
 	//document.write(x+','+y+','+box_remove);
 	document.getElementById("box_"+x+"_"+y+"").classList.remove(classes[class_i]);
-	document.getElementById("box_"+x+"_"+box_remove+"").classList.remove(classes[class_i]);
-	document.getElementById("box_"+x+"_"+box_remove+"").classList.add(classes[class_i+1]);
+	setTimeout(function(){	
+		document.getElementById("box_"+x+"_"+box_remove+"").classList.remove(classes[class_i]);
+		document.getElementById("box_"+x+"_"+box_remove+"").classList.add(classes[class_i+1]);
+		add_value(x,box_remove);
+	},action_speed);	
 	swap='Yes';
 }
 
@@ -143,8 +151,8 @@ function actionswapButtom(x,y,game_box,class_i){
 			no_gamebox++;
 			if(no_gamebox==2){
 				box_remove=x+1;
-				add_class(x,y,class_i,box_remove);
-				add_value(x,y);
+				
+				add_class(box_remove,y,class_i,x);
 				no_gamebox=0;
 			}
 		}else{
@@ -158,8 +166,8 @@ function actionswapButtom(x,y,game_box,class_i){
 			no_gamebox++;
 			if(no_gamebox==2){
 				box_remove=x+1;
-				add_class(x,y,class_i,box_remove);
-				add_value(x,y);
+					add_class(box_remove,y,class_i,x);
+					
 				no_gamebox=0;
 			}
 		}else{
@@ -173,8 +181,9 @@ function actionswapButtom(x,y,game_box,class_i){
 			no_gamebox++;
 			if(no_gamebox==2){
 				box_remove=x+1;
-				add_class(x,y,class_i,box_remove);
-				add_value(x,y);
+				
+					add_class(box_remove,y,class_i,x);
+					
 			}
 		}	
 	}
@@ -196,9 +205,9 @@ function actionswapUp(x,y,game_box,class_i){
 			no_gamebox++;
 			if(no_gamebox==2){
 				box_remove=x-1;
-				//document.write(x+','+y+','+box_remove);
-				add_class(box_remove,y,class_i,x);
-				add_value(box_remove,y);
+				//document.write(x+','+y+','+box_remove);	
+					add_class(box_remove,y,class_i,x);
+					
 				no_gamebox=0;
 			}
 		}else{
@@ -211,9 +220,9 @@ function actionswapUp(x,y,game_box,class_i){
 		if(document.getElementById("box_"+x+"_"+y+"").className === game_box){
 			no_gamebox++;
 			if(no_gamebox==2){
-				box_remove=x-1;
+				box_remove=x-1;	
 				add_class(box_remove,y,class_i,x);
-				add_value(box_remove,y);
+					
 				no_gamebox=0;
 			}
 		}else{
@@ -228,7 +237,7 @@ function actionswapUp(x,y,game_box,class_i){
 			if(no_gamebox==2){
 				box_remove=x-1;
 				add_class(box_remove,y,class_i,x);
-				add_value(box_remove,y);
+					
 			}
 		}	
 	}
@@ -248,8 +257,9 @@ function actionswapRight(y,x,game_box,class_i){
 			no_gamebox++;
 			if(no_gamebox==2){
 				box_remove=y+1;
-				add_classRight_or_Left(x,y,class_i,box_remove);
-				add_value(x,box_remove);
+				
+					add_classRight_or_Left(x,y,class_i,box_remove);
+					
 			}
 		}else{
 			no_gamebox=0;
@@ -261,8 +271,8 @@ function actionswapRight(y,x,game_box,class_i){
 			no_gamebox++;
 			if(no_gamebox==2){
 				box_remove=y+1;
-				add_classRight_or_Left(x,y,class_i,box_remove);
-				add_value(x,box_remove);
+					add_classRight_or_Left(x,y,class_i,box_remove);
+					
 			}
 		}else{
 			no_gamebox=0;
@@ -275,7 +285,7 @@ function actionswapRight(y,x,game_box,class_i){
 			if(no_gamebox==2){
 				box_remove=y+1;
 				add_classRight_or_Left(x,y,class_i,box_remove);
-				add_value(x,box_remove);
+					
 			}
 		}	
 	}
@@ -299,8 +309,8 @@ function actionswapLeft(y,x,game_box,class_i){
 			no_gamebox++;
 			if(no_gamebox==2){
 				box_remove=y-1;
-				add_classRight_or_Left(x,y,class_i,box_remove);
-				add_value(x,box_remove);
+					add_classRight_or_Left(x,y,class_i,box_remove);
+					
 			}
 		}else{
 			no_gamebox=0;
@@ -312,8 +322,9 @@ function actionswapLeft(y,x,game_box,class_i){
 			no_gamebox++;
 			if(no_gamebox==2){
 				box_remove=y-1;
-				add_classRight_or_Left(x,y,class_i,box_remove);
-				add_value(x,box_remove);
+				
+					add_classRight_or_Left(x,y,class_i,box_remove);
+				
 			}
 		}else{
 			no_gamebox=0;
@@ -325,13 +336,12 @@ function actionswapLeft(y,x,game_box,class_i){
 			no_gamebox++;
 			if(no_gamebox==2){
 				box_remove=y-1;
-				add_classRight_or_Left(x,y,class_i,box_remove);
-				add_value(x,box_remove);
+				
+					add_classRight_or_Left(x,y,class_i,box_remove);
+						
 			}
 		}	
 	}
-	
-	
 }
 
 
@@ -435,7 +445,9 @@ function swapButtom(){
 		}	
 	}
 	if(swap=='Yes'){
-		add_gameBox();
+		setTimeout(function (){
+			add_gameBox();
+		},speed);
 	}	
 }
 //end of swap up
@@ -460,7 +472,9 @@ function swapRight(){
 	}
 	
 	if(swap=='Yes'){
-		add_gameBox();
+		setTimeout(function (){
+			add_gameBox();
+		},speed);
 	}
 }
 //end of swap up button in game
@@ -484,7 +498,9 @@ function swapUp(){
 		}	
 	}
 	if(swap=='Yes'){
-		add_gameBox();
+		setTimeout(function (){
+			add_gameBox();
+		},speed);
 	}	
 }
 //end of swap button
@@ -492,22 +508,25 @@ function swapUp(){
 function swapLeft(){
 	swap='';
 	for(y=0;y<=3;y++){
-		for(class_i=classes.length-1;class_i>=0;class_i--){
-			no_gamebox=0;
-			for(x=0;x<=3;x++){
-				str1="gameBox ";
-				str2=classes[class_i];
-				game_box=str1.concat(str2);
-				actionswapLeft(x,y,game_box,class_i);
-				//document.write(y+','+x+','+no_gamebox+','+game_box+','+class_i+'<br>');
-			}
-			
-		arrange_boxesswapLeft(y);
-		}	
+		
+			for(class_i=classes.length-1;class_i>=0;class_i--){
+				no_gamebox=0;
+				for(x=0;x<=3;x++){
+					str1="gameBox ";
+					str2=classes[class_i];
+					game_box=str1.concat(str2);
+					actionswapLeft(x,y,game_box,class_i);
+						
+					//document.write(y+','+x+','+no_gamebox+','+game_box+','+class_i+'<br>');
+				}
+					arrange_boxesswapLeft(y);	
+			}	
 	}
 	
 	if(swap=='Yes'){
-		add_gameBox();
+		setTimeout(function (){
+			add_gameBox();
+		},speed);	
 	}
 }
 //end of swap left
