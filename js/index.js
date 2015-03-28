@@ -33,7 +33,6 @@ function add_gameBox(){
 	if(document.getElementById("box_"+i+"_"+j).classList.length == 1){
 		document.getElementById("box_"+i+"_"+j).classList.add(classes[0]);
 		add_value(i,j);
-		//document.write('hello');
 	}else{
 		add_gameBox();
 	}
@@ -41,7 +40,24 @@ function add_gameBox(){
 }
 
 // for add a value in game box //
-
+function add_value(i,j){
+	value=2;
+	for(a=0;a<classes.length;a++){
+		if(document.getElementById("box_"+i+"_"+j+"").classList.contains(classes[a])){
+			if(a==0){
+				document.getElementById("box_"+i+"_"+j+"").innerHTML = "2";
+			}else{
+				s=2;
+				for(b=1;b<=a;b++){
+					value=value*s;
+				}
+				document.getElementById("box_"+i+"_"+j+"").innerHTML = value;
+			}
+		}
+		//document.write(a+','+classes[a]+'<br>');
+	}
+}
+/*
 function add_value(i,j){
 	/////////////////////////////////////////////////////////////
 	
@@ -92,26 +108,8 @@ function add_value(i,j){
 	}
 	
 }
-//end of add value function
-//////////////////////////////////////////////////////////////////////////////////////////////
-/*
-function add_classes(i,j,index){
-	//document.getElementById("box_"+i+"_"+j+"").classList.toggle(class_remove);
-	add_box_classes.push(box_classes[index]);
-	document.getElementById("box_"+i+"_"+j+"").classList.toggle(box_classes[index]);
-	add_value(i,j);
-}*/
-/////////////////////////////////////////////////////////////////////////////////////////////
-//remove class or game_box
-/*
-function remove_classes(i,j){
-	//document.getElementById("box_"+i+"_"+j+"").classList.toggle(class_remove);
-	var remove=add_box_classes.pop();
-	document.getElementById("box_"+i+"_"+j+"").classList.toggle(remove);
-	var index=
-	add_classes(i,j,index);
-}	
 */
+//end of add value function
 //action of game boxes
 function add_class(x,y,class_i,box_remove){
 	//document.write(x+','+box_remove);
@@ -448,7 +446,9 @@ function swapButtom(){
 		setTimeout(function (){
 			add_gameBox();
 		},speed);
-	}	
+	}else{
+		gameover();
+	}
 }
 //end of swap up
 
@@ -475,6 +475,8 @@ function swapRight(){
 		setTimeout(function (){
 			add_gameBox();
 		},speed);
+	}else{
+		gameover();
 	}
 }
 //end of swap up button in game
@@ -501,6 +503,8 @@ function swapUp(){
 		setTimeout(function (){
 			add_gameBox();
 		},speed);
+	}else{
+		gameover();
 	}	
 }
 //end of swap button
@@ -527,6 +531,11 @@ function swapLeft(){
 		setTimeout(function (){
 			add_gameBox();
 		},speed);	
+	}else{
+		gameover();
 	}
 }
 //end of swap left
+function gameover(){
+	
+}
