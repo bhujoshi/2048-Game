@@ -7,7 +7,7 @@ var no_of_gamebox3=0;
 var no_of_gamebox4=0;
 var swap='';
 var speed=200;
-var action_speed;
+var action_speed=100;
 
 function gameBox(){
 	var s = "";
@@ -538,114 +538,123 @@ function swapLeft(){
 //end of swap left
 function gameover(){
 	no=false;
-	
-	
-	for(y=0;y<=3;y++){
-		
-			for(class_i=classes.length-1;class_i>=0;class_i--){
-				no_gamebox=0;
-				for(x=0;x<=3;x++){
-					str1="gameBox ";
-					str2=classes[class_i];
-					game_box=str1.concat(str2);
-					
-					if(x===0){
-						if(document.getElementById("box_"+x+"_"+y+"").className === game_box){
-							no_gamebox++;
-						}	
-					}
-					
-					if(x===1){
-						if(document.getElementById("box_"+x+"_"+y+"").className === game_box){
-							no_gamebox++;
-							if(no_gamebox==2){
-								no=true;
-							}
-						}else{
-							no_gamebox=0;
-						}		
-					}
-					
-					if(x===2){
-						if(document.getElementById("box_"+x+"_"+y+"").className === game_box){
-							no_gamebox++;
-							if(no_gamebox==2){
-								no=true;
-							}
-						}else{
-							no_gamebox=0;
-						}		
-					}
-					
-					if(x===3){
-						if(document.getElementById("box_"+x+"_"+y+"").className === game_box){
-							no_gamebox++;
-							if(no_gamebox==2){
-								no=true;
-							}
-						}else{
-							no_gamebox=0;
-						}		
-					}
-					//document.write(x+','+y+'<br>');
-				}
-				
-			}	
+	full=false;
+	for(i=0;i<=3;i++){
+		for(j=0;j<=3;j++){
+			if(document.getElementById("box_"+i+"_"+j+"").className === 'gameBox'){
+				full=true;
+				no=true;
+			}
+		}
 	}
-	
-	for(y=0;y<=3;y++){
+	//document.write(full+','+no);
+	if(full===false){	
+		for(y=0;y<=3;y++){	
+				for(class_i=classes.length-1;class_i>=0;class_i--){
+					no_gamebox=0;
+					for(x=0;x<=3;x++){
+						str1="gameBox ";
+						str2=classes[class_i];
+						game_box=str1.concat(str2);
+						
+						if(x===0){
+							if(document.getElementById("box_"+x+"_"+y+"").className === game_box){
+								no_gamebox++;
+							}	
+						}
+						
+						if(x===1){
+							if(document.getElementById("box_"+x+"_"+y+"").className === game_box){
+								no_gamebox++;
+								if(no_gamebox==2){
+									no=true;
+								}
+							}else{
+								no_gamebox=0;
+							}		
+						}
+						
+						if(x===2){
+							if(document.getElementById("box_"+x+"_"+y+"").className === game_box){
+								no_gamebox++;
+								if(no_gamebox==2){
+									no=true;
+								}
+							}else{
+								no_gamebox=0;
+							}		
+						}
+						
+						if(x===3){
+							if(document.getElementById("box_"+x+"_"+y+"").className === game_box){
+								no_gamebox++;
+								if(no_gamebox==2){
+									no=true;
+								}
+							}else{
+								no_gamebox=0;
+							}		
+						}
+						//document.write(x+','+y+'<br>');
+					}
+					
+				}	
+		}
 		
-			for(class_i=classes.length-1;class_i>=0;class_i--){
-				no_gamebox=0;
-				for(x=0;x<=3;x++){
-					str1="gameBox ";
-					str2=classes[class_i];
-					game_box=str1.concat(str2);
-					
-					if(x===0){
-						if(document.getElementById("box_"+y+"_"+x+"").className === game_box){
-							no_gamebox++;
-						}	
+		for(y=0;y<=3;y++){
+			
+				for(class_i=classes.length-1;class_i>=0;class_i--){
+					no_gamebox=0;
+					for(x=0;x<=3;x++){
+						str1="gameBox ";
+						str2=classes[class_i];
+						game_box=str1.concat(str2);
+						
+						if(x===0){
+							if(document.getElementById("box_"+y+"_"+x+"").className === game_box){
+								no_gamebox++;
+							}	
+						}
+						
+						if(x===1){
+							if(document.getElementById("box_"+y+"_"+x+"").className === game_box){
+								no_gamebox++;
+								if(no_gamebox==2){
+									no=true;
+								}
+							}else{
+								no_gamebox=0;
+							}		
+						}
+						
+						if(x===2){
+							if(document.getElementById("box_"+y+"_"+x+"").className === game_box){
+								no_gamebox++;
+								if(no_gamebox==2){
+									no=true;
+								}
+							}else{
+								no_gamebox=0;
+							}		
+						}
+						
+						if(x===3){
+							if(document.getElementById("box_"+y+"_"+x+"").className === game_box){
+								no_gamebox++;
+								if(no_gamebox==2){
+									no=true;
+								}
+							}else{
+								no_gamebox=0;
+							}		
+						}
+						//document.write(y+','+x+'<br>');
 					}
 					
-					if(x===1){
-						if(document.getElementById("box_"+y+"_"+x+"").className === game_box){
-							no_gamebox++;
-							if(no_gamebox==2){
-								no=true;
-							}
-						}else{
-							no_gamebox=0;
-						}		
-					}
-					
-					if(x===2){
-						if(document.getElementById("box_"+y+"_"+x+"").className === game_box){
-							no_gamebox++;
-							if(no_gamebox==2){
-								no=true;
-							}
-						}else{
-							no_gamebox=0;
-						}		
-					}
-					
-					if(x===3){
-						if(document.getElementById("box_"+y+"_"+x+"").className === game_box){
-							no_gamebox++;
-							if(no_gamebox==2){
-								no=true;
-							}
-						}else{
-							no_gamebox=0;
-						}		
-					}
-					//document.write(y+','+x+'<br>');
-				}
-				
-			}	
+				}	
+		}
 	}
-	
+	//document.write(full+','+no);
 	if(no===false){
 		document.write('Ooops gameover you lose try agine!');
 	}
