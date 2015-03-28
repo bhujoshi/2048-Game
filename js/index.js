@@ -537,5 +537,15 @@ function swapLeft(){
 }
 //end of swap left
 function gameover(){
-	
+	no=false;
+	for(x=0;x<=3;x++){	
+		for(y=0;y<=3;y++){	
+			if(document.getElementById("box_"+x+"_"+y+"").className === "gameBox"){
+				no=true;
+			}
+		}	
+	}
+	if(no===false){
+		document.write('Ooops gameover you lose try agine!');
+	}
 }
