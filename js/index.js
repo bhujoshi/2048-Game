@@ -6,7 +6,7 @@ var no_of_gamebox2=0;
 var no_of_gamebox3=0;
 var no_of_gamebox4=0;
 var swap='';
-var speed=400;
+var speed=200;
 var action_speed=200;
 var score=0;
 
@@ -19,6 +19,9 @@ function gameBox(){
 	}
 	document.getElementById('s').innerHTML = score;
 	gamebody.innerHTML = s;
+	score=0;
+	document.getElementById('gameover').style.display= "none";
+	document.getElementById('s').innerHTML = score;
 	add_gameBox();
 	add_gameBox();
 	add_gameBox();
@@ -67,12 +70,10 @@ function remove_value(i,j){
 function add_class(x,y,class_i,box_remove){
 	//document.write(x+','+box_remove);
 	document.getElementById("box_"+box_remove+"_"+y+"").classList.remove(classes[class_i]);
-	remove_value(box_remove,y);
-	setTimeout(function(){	
-		document.getElementById("box_"+x+"_"+y+"").classList.remove(classes[class_i]);
-		document.getElementById("box_"+x+"_"+y+"").classList.add(classes[class_i+1]);
-		add_value(x,y);
-	},action_speed);	
+	remove_value(box_remove,y);	
+	document.getElementById("box_"+x+"_"+y+"").classList.remove(classes[class_i]);
+	document.getElementById("box_"+x+"_"+y+"").classList.add(classes[class_i+1]);
+	add_value(x,y);	
 	swap='Yes';
 }
 
@@ -80,11 +81,9 @@ function add_classRight_or_Left(x,y,class_i,box_remove){
 	//document.write(x+','+y+','+box_remove);
 	document.getElementById("box_"+x+"_"+y+"").classList.remove(classes[class_i]);
 	remove_value(x,y);
-	setTimeout(function(){	
-		document.getElementById("box_"+x+"_"+box_remove+"").classList.remove(classes[class_i]);
-		document.getElementById("box_"+x+"_"+box_remove+"").classList.add(classes[class_i+1]);
-		add_value(x,box_remove);
-	},action_speed);	
+	document.getElementById("box_"+x+"_"+box_remove+"").classList.remove(classes[class_i]);
+	document.getElementById("box_"+x+"_"+box_remove+"").classList.add(classes[class_i+1]);
+	add_value(x,box_remove);	
 	swap='Yes';
 }
 
@@ -603,6 +602,6 @@ function gameover(){
 	}
 	//document.write(full+','+no);
 	if(no===false){
-		document.write('Ooops gameover you lose try agine!');
+		document.getElementById('gameover').style.display= "block";
 	}
 }

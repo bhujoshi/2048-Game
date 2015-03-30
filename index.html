@@ -7,29 +7,37 @@
 		<script type="text/javascript" src="js/arrow_key.js"></script>
 	</head>
 	<body onload="gameBox();">
-		<header>
-			<div style="height: 50px;">
-				<div class='button left cursor'>2048++</div>
-				<ul class="right">
-					<li><img src="img/reload.svg" class="reload cursor" /></li>
-					<li><img src="img/menu.svg" class="cursor"/></li>
-				</ul>
-			</div>	
+		<div id="container">
+			<header>
+				<div style="height: 50px;">
+					<div class='button left cursor'>2048++</div>
+					<ul class="right">
+						<li onclick='gameBox();'><img src="img/reload.svg" class="reload cursor" /></li>
+						<li><img src="img/menu.svg" class="cursor"/></li>
+					</ul>
+				</div>	
+				<div class="clear"></div>
+				<div class="task"> <b>Classic Mode:</b> Join the numbers and get 2048 tile! </div>
+				<div class="clear"></div>
+				<div >
+					<div class="score right">
+						<span>High Score</span>
+						<p id"hs">220</p>
+					</div>
+					<div class="score right">
+						<span>Score</span>
+						<p id="s">20</p>
+					</div>
+				</div>	
+			</header>
 			<div class="clear"></div>
-			<div class="task"> <b>Classic Mode:</b> Join the numbers and get 2048 tile! </div>
-			<div class="clear"></div>
-			<div >
-				<div class="score right">
-					<span>High Score</span>
-					<p id"hs">220</p>
-				</div>
-				<div class="score right">
-					<span>Score</span>
-					<p id="s">20</p>
-				</div>
-			</div>	
-		</header>
-		<div class="clear"></div>
-		<div id="gamebody"></div>
+			<div id="gamebody"></div>
+		</div>	
+		<div id="gameover">
+			Ooop's<br>
+			Game Over<br>
+			<br>
+			<p onclick="gameBox();" style="font-size: 20px;" class='cursor'>Try Agine</p>
+		</div>
 	</body>
 </html>
