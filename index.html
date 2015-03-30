@@ -1,28 +1,35 @@
 <html>
 	<head>
-		<title>2048 Game</title>
+		<title>NEW 2048</title>
 		<link type="text/css" rel="stylesheet" href="css/index.css">
 		<link type="text/css" rel="stylesheet" href="css/game_box.css">
 		<script type="text/javascript" src="js/index.js"></script>
 		<script type="text/javascript" src="js/arrow_key.js"></script>
 	</head>
 	<body onload="gameBox();">
-		<div id="container">	
-			<header>
-				<div id="logo">2048</div>
-				<div id="score">1000</div>
-				<div id="best">2000</div>
-				<div id="task"> <b>Classic Mode:</b> Join the numbers and get 2048 tile! </div>
-			</header>
-			
-			<div id="gamebody"></div>
-		
-			<div id="button">	
-				<button onclick="swapUp()">swap up!</button>
-				<button onclick="swapRight()">swap right!</button>
-				<button onclick="swapButtom()">swap buttom!</button>
-				<button onclick="swapLeft()">swap left!</button>
+		<header>
+			<div style="height: 50px;">
+				<div class='button left cursor'>2048++</div>
+				<ul class="right">
+					<li><img src="img/reload.svg" class="reload cursor" /></li>
+					<li><img src="img/menu.svg" class="cursor"/></li>
+				</ul>
 			</div>	
-		</div>	
+			<div class="clear"></div>
+			<div class="task"> <b>Classic Mode:</b> Join the numbers and get 2048 tile! </div>
+			<div class="clear"></div>
+			<div >
+				<div class="score right">
+					<span>High Score</span>
+					<p id"hs">220</p>
+				</div>
+				<div class="score right">
+					<span>Score</span>
+					<p id="s">20</p>
+				</div>
+			</div>	
+		</header>
+		<div class="clear"></div>
+		<div id="gamebody"></div>
 	</body>
 </html>
