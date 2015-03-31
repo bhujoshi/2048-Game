@@ -1,30 +1,31 @@
 body{
 	margin: 0px;
-	max-width: 400px;
-	max-height: 100%;
+	width: 100%;
+	height: 100%;
 	text-align:center;
+	background-color: #087;
 }
 #container{
 	margin: 0px;
 	padding: 0px;
 	width: 100%;
-	height: 99%;
-	background-color: #087;
+	height: 100%;
+	max-width: 400px;
 	color: #DFD5D5;
-	
-	border: 1px solid black;
 }
 
 header{
 	height: auto;
 	margin: 2% 5% 0% 5%;
 }
+
 ul{	
 	list-style-type: none;
 	margin-top: 3px;
 	margin-bottom: 0px;
 	padding: 0px;
 }
+
 li{
 	display: inline-block;
 	padding: 2px;
@@ -55,10 +56,15 @@ p{
 	box-shadow: 0px 4px 4px #888888;
 }
 
+#s, #hs{
+	margin-top: -3px;
+}
+
 .button{
 	display: inline-block;
 	height: 35px;
-	width: 120px;
+	width: 40%;
+	margin-top: 2%;
 	padding-top: 5px; 
 	background-color: #446;
 	border-radius:10px;
@@ -73,6 +79,7 @@ p{
 }
 
 .task{
+	margin: 2% 0%;
 	font-size: 15px;
 	padding-bottom: 2px;
 }
@@ -99,12 +106,19 @@ img:active, .button:active{
 	float: left;
 }
 
+@media screen and (min-width:400px) {
+	body{
+		width: 100%;
+	}
+}
+
 #gamebody{
-	margin: 20px 4% 0px 4%;
+	float: right;
+	margin: 10% 4% 0px 4%;
 	padding-top: 1%;
 	padding-right: 1%; 
 	height: 343px;
-	width: 89%;
+	width: 90%;
 	background: rgb(158, 77, 77);
 	border-radius: 10px;
 }
@@ -124,17 +138,25 @@ img:active, .button:active{
 
 #gameover{
 	display: none;
-	position: relative;
-	top: -100%;
-	padding-top: 30%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
 	max-width: 400px;
-	height: 81%;
+	height: 100%;
 	opacity: 0.9;
 	color: brown;
 	font-size: 2em;
 	background: #ffffff;
 }
-@media screen and (max-width:350px) {
+
+@media only screen and (max-device-width:400){
+	body{
+		max-width: 400px;
+	}
+}
+
+@media only screen and (max-device-width:350px) {
 	#gamebody{
 		height: 260px;
 	}
@@ -149,7 +171,7 @@ img:active, .button:active{
 	
 }
 
-@media screen and (max-width:300px) {
+@media 0nly screen and (max-device-width:300px) {
 	.gameBox{
 		height: 50px;
 		padding-top: 10px;
@@ -165,7 +187,7 @@ img:active, .button:active{
 }
 
 
-@media screen and (max-width:280px) {
+@media only screen and (max-device-width:280px) {
 	.gameBox{
 		height: 37px;
 		padding-top: 10px;
