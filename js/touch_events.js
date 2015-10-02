@@ -2,8 +2,8 @@ window.addEventListener('load', function(){
 	
 	var startx = 0;
 	var starty = 0;
-    var distX = 0;
-    var distY = 0;
+    	var distX = 0;
+    	var distY = 0;
 	
 	
 	document.getElementById('container').addEventListener('touchstart', function(e){
@@ -21,12 +21,12 @@ window.addEventListener('load', function(){
 		//starty = parseInt(touchobj.clientY);
 		distX = parseInt(touchobj.clientX) - startx;
 		
-		if(distX>=50){
+		if(distX>=100){
 			swapRight();
 			touchobj=0;
 		}
 		
-		if(distX<=-50){
+		if(distX<=-100){
 			swapLeft();
 			touchobj=0;
 		}
@@ -39,12 +39,12 @@ window.addEventListener('load', function(){
 		var touchobj = e.changedTouches[0];
 		distY = parseInt(touchobj.clientY) - starty;
 		
-		if(distY>=50){
+		if(distY>=100){
 			swapButtom();
 			touchobj=0;
 		}
 		
-		if(distY<=-50){
+		if(distY<=-100){
 			swapUp();
 			touchobj=0;
 		}
